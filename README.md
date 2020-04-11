@@ -94,6 +94,8 @@ copy umoria\Debug\umoria.exe umoria\
 explorer umoria\
 ```
 
+### Windows (using MinGW)
+
 MinGW is used to provide GCC and GNU Binutils for compiling on the Windows platform.
 The easiest solution to get set up is to use the [MSYS2 Installer](http://msys2.github.io/).
 Once installed, `pacman` can be used to install `GCC`, `ncurses`, and the
