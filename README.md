@@ -72,6 +72,28 @@ as the `home` directory.
 
 ### Windows
 
+Building with CMake and Visual Studio - can use either build tools or visual studio. Tested with 2019. Uses pdcurses. Also, built with 32 bit - use standard developer prompt.
+```
+get a curses lib: curl -L https://downloads.sourceforge.net/project/pdcurses/pdcurses/3.8/PDCurses-3.8.zip --output pdcurses.zip
+tar -xf pdcurses.zip
+cd PDCurses-3.8\wincon
+nmake -f Makefile.vc
+```
+
+Then, configure and build umoria:
+
+```
+cd umoria
+mkdir out
+cd out
+set CURSES_LIBRARY=..\..\PDCurses-3.8\wincon\pdcurses.lib
+set CURSES_INCLUDE_PATH=..\..\PDCurses-3.8
+cmake -DCURSES_LIBRARY="%CURSES_LIBRARY%" -DCURSES_INCLUDE_PATH="%CURSES_INCLUDE_PATH%" -G "Visual Studio 16 2019" -A Win32 ..\
+cmake --build .
+copy umoria\Debug\umoria.exe umoria\
+explorer umoria\
+```
+
 MinGW is used to provide GCC and GNU Binutils for compiling on the Windows platform.
 The easiest solution to get set up is to use the [MSYS2 Installer](http://msys2.github.io/).
 Once installed, `pacman` can be used to install `GCC`, `ncurses`, and the
