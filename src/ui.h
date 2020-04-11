@@ -58,7 +58,7 @@ bool terminalInitialize();
 void terminalRestore();
 void terminalSaveScreen();
 void terminalRestoreScreen();
-ssize_t terminalBellSound();
+void terminalBellSound();
 void putQIO();
 void flushInputBuffer();
 void clearScreen();

@@ -13,7 +13,8 @@
 #ifdef _WIN32
   // this is defined in Windows and also in ncurses
   #undef KEY_EVENT
-  #include <ncurses/ncurses.h>
+  // using pdcurses
+  #include <curses.h>
 #else
   #include <ncurses.h>
 #endif

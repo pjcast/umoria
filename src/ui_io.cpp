@@ -91,15 +91,13 @@ void terminalRestoreScreen() {
     touchwin(stdscr);
 }
 
-ssize_t terminalBellSound() {
+void terminalBellSound() {
     putQIO();
 
     // The player can turn off beeps if they find them annoying.
     if (config::options::error_beep_sound) {
-        return write(1, "\007", 1);
+        write(1, "\007", 1);
     }
-
-    return 0;
 }
 
 // Dump the IO buffer to terminal -RAK-
@@ -541,11 +539,13 @@ void getDefaultPlayerName(char *buffer) {
     const char *default_name = "X";
 
 #ifdef _WIN32
-    unsigned long bufCharCount = PLAYER_NAME_SIZE;
+    // This needs to be in a different file, typedef conflict with windows include
+    // or, decide if this is even important
+    /*unsigned long bufCharCount = PLAYER_NAME_SIZE;
 
     if (!GetUserName(buffer, &bufCharCount)) {
-        (void) strcpy(buffer, defaultName);
-    }
+        (void) strcpy(buffer, default_name);
+    }*/
 #else
     char *p = getlogin();
 

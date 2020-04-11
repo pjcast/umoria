@@ -553,7 +553,7 @@ bool loadGame(bool &generate) {
         config::options::run_print_self = (l & 0x4) != 0;
         config::options::find_bound = (l & 0x8) != 0;
         config::options::prompt_to_pickup = (l & 0x10) != 0;
-        config::options::use_roguelike_keys = (l & 0x20) != 0;
+        //config::options::use_roguelike_keys = (l & 0x20) != 0;
         config::options::show_inventory_weights = (l & 0x40) != 0;
         config::options::highlight_seams = (l & 0x80) != 0;
         config::options::run_ignore_doors = (l & 0x100) != 0;

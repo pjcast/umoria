@@ -33,7 +33,7 @@ Options:
 int main(int argc, char *argv[]) {
     uint32_t seed = 0;
     bool new_game = false;
-    bool roguelike_keys = true;
+    bool roguelike_keys = false;
 
     // call this routine to grab a file pointer to the high score file
     // and prepare things to relinquish setuid privileges
